@@ -38,7 +38,7 @@ type MovieForm = {
   comment: string;
 };
 
-const qualityOptions = ["DIY原盘", "Remux", "WEB-DL", "BluRay", "高清", "AI修复"];
+const qualityOptions = ["高清", "原盘", "标清", "AI修复"];
 const resolutionOptions = ["4K", "1080P", "720P", "480P"];
 const subtitleOptions = ["中文字幕", "英文字幕", "双语字幕", "无字幕"];
 const sizeUnits: MovieForm["sizeUnit"][] = ["GB", "MB", "TB"];
@@ -77,7 +77,7 @@ function App() {
       );
       setSelected({
         ...data.movie,
-        quality: "DIY原盘",
+        quality: "原盘",
         resolution: "1080P",
         sizeValue: "",
         sizeUnit: "GB",
