@@ -35,6 +35,33 @@
 
 如果同步时报 404，通常说明这个 ID 不是实际数据库 ID，或者 Integration 还没有被添加到数据库。
 
+## 使用 Vercel 部署
+
+1. 打开 Vercel，选择 `Add New...` -> `Project`。
+2. 导入这个 GitHub 仓库：`mokeyishi/cine-notion`。
+3. Framework Preset 选择 `Vite`。通常 Vercel 会自动识别。
+4. 在 `Environment Variables` 添加：
+
+```text
+TMDB_API_KEY=你的 TMDB API Key
+NOTION_TOKEN=你的 Notion Integration Token
+NOTION_DATABASE_ID=你的 Notion 数据库 ID
+```
+
+5. Build Command 使用默认的 `npm run build`。
+6. Output Directory 使用默认的 `dist`。
+7. 点击 Deploy。
+
+部署后，前端会调用同域名下的 Vercel Functions：
+
+```text
+/api/search
+/api/details/:mediaType/:id
+/api/notion/sync
+```
+
+密钥只存在于 Vercel 环境变量里，不会打包进浏览器页面。
+
 ## 本地运行
 
 复制 `.env.example` 为 `.env`，填入：
